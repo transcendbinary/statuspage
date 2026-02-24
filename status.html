@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transcend Binary | Status</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    background-color: #222;
+    font-family: 'Roboto', sans-serif;
+    font-size: 150%;
+    text-align: center;
+    margin: 0;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px solid #95a1ac;
+    margin: 20px auto;
+    width: 80%;
+  }
+
+  p {
+    color: #95a1ac;
+    font-size: 80%;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #eee;
+    text-shadow: 
+      -1px -1px 0 rgba(238, 238, 238, 0.5), 
+       1px -1px 0 rgba(238, 238, 238, 0.5), 
+      -1px  1px 0 rgba(238, 238, 238, 0.5), 
+       1px  1px 0 rgba(238, 238, 238, 0.5);
+  }
+
+  h1 {
+    color: #1f1b99;
+    text-decoration: underline;
+    font-size: 250%;
+  }
+
+  .spinner {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-left: 10px;
+    border: 2px solid rgba(238, 238, 238, 0.3);
+    border-top: 2px solid #95a1ac;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    vertical-align: middle;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  .hidden {
+    display: none;
+  }
+</style>
+</head>
+
+<body>
+
+<h1>Transcend Binary Status</h1>
+<hr>
+
+<h2 style="color: #28a745">Status Page</h2>
+<p>Fully Operational</p>
+
+<hr>
+
+<h2 id="mainSite">
+  Main Site
+  <span class="spinner" id="mainSiteSpinner"></span>
+</h2>
+<p id="mainSiteStatus"></p>
+
+<hr>
+
+<h2 id="betaSite">
+  Beta Site
+  <span class="spinner" id="betaSiteSpinner"></span>
+</h2>
+<p id="betaSiteStatus"></p>
+
+<hr>
+
+<h2 id="cdn">
+  CDN
+  <span class="spinner" id="cdnSpinner"></span>
+</h2>
+<p id="cdnStatus"></p>
+
+<hr>
+
+<h2 id="teespring">
+  Main Store (Teespring)
+  <span class="spinner" id="teespringSpinner"></span>
+</h2>
+<p id="teespringStatus"></p>
+
+<hr>
+
+<h2 id="bigCartel">
+  Sticker Shop (Big Cartel)
+  <span class="spinner" id="bigCartelSpinner"></span>
+</h2>
+<p id="bigCartelStatus"></p>
+
+<hr>
+
+<script>
+const red = "Service Offline";
+const green = "Service Online";
+
+async function checkService(url, headerId, textId, spinnerId) {
+  const header = document.getElementById(headerId);
+  const text = document.getElementById(textId);
+  const spinner = document.getElementById(spinnerId);
+
+  try {
+    await fetch(url, { mode: "no-cors" });
+
+    header.style.color = "#28a745";
+    text.textContent = green;
+
+  } catch {
+    header.style.color = "#dc3545";
+    text.textContent = red;
+  }
+
+  spinner.classList.add("hidden");
+}
+
+checkService("https://transcendbinary.co.uk", "mainSite", "mainSiteStatus", "mainSiteSpinner");
+checkService("https://beta.transcendbinary.co.uk", "betaSite", "betaSiteStatus", "betaSiteSpinner");
+checkService("https://cdn.transcendbinary.co.uk", "cdn", "cdnStatus", "cdnSpinner");
+checkService("https://store.transcendbinary.co.uk", "teespring", "teespringStatus", "teespringSpinner");
+checkService("https://stickers.transcendbinary.co.uk", "bigCartel", "bigCartelStatus", "bigCartelSpinner");
+</script>
+
+</body>
+</html>
