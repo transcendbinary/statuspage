@@ -77,6 +77,14 @@
 
 <hr>
 
+<h2 id="origin">
+  Origin
+  <span class="spinner" id="originSpinner"></span>
+</h2>
+<p id="originStatus"></p>
+
+<hr>
+
 <h2 id="mainSite">
   Main Site
   <span class="spinner" id="mainSiteSpinner"></span>
@@ -140,6 +148,7 @@ async function checkService(url, headerId, textId, spinnerId) {
   spinner.classList.add("hidden");
 }
 
+checkService("https://transcendbinary.co.uk", "origin", "originStatus", "originSpinner");
 checkService("https://transcendbinary.co.uk", "mainSite", "mainSiteStatus", "mainSiteSpinner");
 checkService("https://beta.transcendbinary.co.uk", "betaSite", "betaSiteStatus", "betaSiteSpinner");
 checkService("https://cdn.transcendbinary.co.uk", "cdn", "cdnStatus", "cdnSpinner");
@@ -149,3 +158,4 @@ checkService("https://stickers.transcendbinary.co.uk", "bigCartel", "bigCartelSt
 
 </body>
 </html>
+
