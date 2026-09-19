@@ -109,6 +109,14 @@
 
 <hr>
 
+<h2 id="api">
+  API
+  <span class="spinner" id="apiSpinner"></span>
+</h2>
+<p id="apiStatus"></p>
+
+<hr>
+
 <h2 id="teespring">
   Main Store (Teespring)
   <span class="spinner" id="teespringSpinner"></span>
@@ -152,6 +160,7 @@ checkService("https://transcendbinary.co.uk", "origin", "originStatus", "originS
 checkService("https://transcendbinary.co.uk", "mainSite", "mainSiteStatus", "mainSiteSpinner");
 checkService("https://beta.transcendbinary.co.uk", "betaSite", "betaSiteStatus", "betaSiteSpinner");
 checkService("https://cdn.transcendbinary.co.uk", "cdn", "cdnStatus", "cdnSpinner");
+checkService("https://api.transcendbinary.co.uk", "api", "apiStatus", "apiSpinner");
 checkService("https://store.transcendbinary.co.uk", "teespring", "teespringStatus", "teespringSpinner");
 checkService("https://stickers.transcendbinary.co.uk", "bigCartel", "bigCartelStatus", "bigCartelSpinner");
 </script>
