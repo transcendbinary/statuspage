@@ -91,6 +91,14 @@
 </h2>
 <p id="mainSiteStatus"></p>
 
+  <hr>
+
+<h2 id="miles">
+  Miles
+  <span class="spinner" id="milesSiteSpinner"></span>
+</h2>
+<p id="milesSiteStatus"></p>
+  
 <hr>
 
 <h2 id="betaSite">
@@ -157,7 +165,8 @@ async function checkService(url, headerId, textId, spinnerId) {
 }
 
 checkService("https://transcendbinary.co.uk", "origin", "originStatus", "originSpinner");
-checkService("https://transcendbinary.co.uk", "mainSite", "mainSiteStatus", "mainSiteSpinner");
+checkService("https://www.transcendbinary.co.uk", "mainSite", "mainSiteStatus", "mainSiteSpinner");
+checkService("https://TranscendBinaryMiles.zapier.app", "miles", "milesStatus", "milesSpinner");
 checkService("https://beta.transcendbinary.co.uk", "betaSite", "betaSiteStatus", "betaSiteSpinner");
 checkService("https://cdn.transcendbinary.co.uk", "cdn", "cdnStatus", "cdnSpinner");
 checkService("https://api.transcendbinary.co.uk", "api", "apiStatus", "apiSpinner");
